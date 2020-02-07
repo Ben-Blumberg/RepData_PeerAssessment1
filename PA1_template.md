@@ -33,7 +33,7 @@ summary(dailySteps[,2])
 hist(dailySteps[,2],breaks=30, main="Histogram of total daily steps",xlab = "Total daily steps")
 ```
 
-![](PA1_template_files/figure-html/mean daily steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/dailySteps-1.png)<!-- -->
 
 4. Time series plot of the average number of steps taken, and  
 5. The 5-minute interval that, on average, contains the most number of steps
@@ -44,7 +44,7 @@ intervalAverage <- aggregate(activity$steps,by=list(activity$interval),FUN=mean,
 plot(intervalAverage[,1],intervalAverage[,2],type="l")
 ```
 
-![](PA1_template_files/figure-html/most active interval-1.png)<!-- -->
+![](PA1_template_files/figure-html/intervals-1.png)<!-- -->
 
 ```r
 intervalAverage[which.max(intervalAverage[,2]),1]
@@ -83,7 +83,7 @@ summary(dailyStepsCleaned[,2])
 hist(dailyStepsCleaned[,2],breaks=30, main="Histogram of total daily steps",xlab = "Total daily steps")
 ```
 
-![](PA1_template_files/figure-html/clean data-1.png)<!-- -->
+![](PA1_template_files/figure-html/cleanData-1.png)<!-- -->
 
 8. Panel plot comparing the average number of steps taken per 5-minute intervals across weekdays and weekends   
 

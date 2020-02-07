@@ -10,14 +10,14 @@ output:
 
 1. Code for reading in the dataset  
 
-```{r load data}
+```{r loadData}
 activity <- read.csv(file = "activity/activity.csv");
 ```
 
 2. Histogram of the total number of steps taken each day, and  
 3. Mean and medium number of steps taken each day  
 
-```{r mean daily steps}
+```{r dailySteps}
 dailySteps <- aggregate(activity$steps,by=list(activity$date),FUN=sum, na.rm=TRUE)
 summary(dailySteps[,2])
 hist(dailySteps[,2],breaks=30, main="Histogram of total daily steps",xlab = "Total daily steps")
@@ -26,7 +26,7 @@ hist(dailySteps[,2],breaks=30, main="Histogram of total daily steps",xlab = "Tot
 4. Time series plot of the average number of steps taken, and  
 5. The 5-minute interval that, on average, contains the most number of steps
 
-```{r most active interval}
+```{r intervals}
 intervalAverage <- aggregate(activity$steps,by=list(activity$interval),FUN=mean, na.rm=TRUE)
 plot(intervalAverage[,1],intervalAverage[,2],type="l")
 intervalAverage[which.max(intervalAverage[,2]),1]
@@ -37,7 +37,7 @@ intervalAverage[which.max(intervalAverage[,2]),1]
 7. Histogram of the total number of steps per dat after missing values are imputed. Compared to the histogram taken before the NA values were replaced, this graphic shows  less days with zero steps recorded (previously only NA entries), mainly shifting to the average number of total daily steps.  
 
 
-```{r clean data}
+```{r cleanData}
 stepsCleaned<-activity$steps
 for (i in 1:length(activity$steps))
 {
